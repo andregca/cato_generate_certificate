@@ -1,0 +1,16 @@
+ca:
+  country: "US"
+  state: "CA"
+  locality: "California"
+  organization: "Cato Cloud"
+  org_unit: "CyberSecurity Division"
+  cn: "My Personal Root CA"
+  email: "nobody@catonetworks.com"
+  days: 1024
+  cert_name: "rootCA"
+  key_name: "rootCA" 
+device:
+  cn: "device.local"
+  days: 500
+  "key_name": "device"
+  "cert_name": "device"
