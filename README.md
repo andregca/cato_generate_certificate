@@ -96,6 +96,12 @@ A sample configuration can be found in `cert_config-sample.yml`. This file inclu
 
 Note: check if the Cato ZTNA Client version you are using supports device certificate check before enforcing it. The supported versions can be found in the [Cato Documentation](https://support.catonetworks.com/hc/en-us/articles/7387501459357-Creating-Device-Posture-Profiles-and-Device-Checks)
 
+## Author
+**Andre Gustavo Albuquerque**
+
+[GitHub](https://github.com/andregca)
+
+
 ## License
 
 Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
