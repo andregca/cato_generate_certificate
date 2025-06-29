@@ -81,7 +81,7 @@ parse_yaml
 
 # Step 1: Generate root CA private key
 ROOT_CA_KEY_NAME="$CERTS_DIR/$CA_KEY_NAME.key"
-openssl genrsa -des3 -passout pass:"$CA_PASSWORD" -out "$ROOT_CA_KEY_NAME" 4096 || fail "Failed to generate root CA key"
+openssl genrsa -aes256 -passout pass:"$CA_PASSWORD" -out "$ROOT_CA_KEY_NAME" 4096 || fail "Failed to generate root CA key"
 
 # Step 2: Create root CA certificate
 ROOT_CA_CERT_NAME="$CERTS_DIR/$CA_CERT_NAME.crt"
