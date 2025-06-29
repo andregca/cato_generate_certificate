@@ -43,15 +43,16 @@ All generated certificate files will be placed in the `certs/` directory.
 
 ## Files Created
 
-| File         | Description                                     |
-| ------------ | ----------------------------------------------- |
-| `rootCA.key` | Root CA private key (password protected)        |
-| `rootCA.crt` | Root CA certificate                             |
-| `rootCA.pem` | Root CA certificate in PEM format (for CMA)     |
-| `device.key` | Device private key                              |
-| `device.csr` | Certificate Signing Request for the device      |
-| `device.crt` | Signed device certificate                       |
-| `device.p12` | PKCS#12 bundle for SDP clients                  |
+| File               | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| `rootCA.key`       | Root CA private key (password protected)        |
+| `rootCA.crt`       | Root CA certificate                             |
+| `rootCA.pem`       | Root CA certificate in PEM format (for CMA)     |
+| `device.key`       | Device private key                              |
+| `device.csr`       | Certificate Signing Request for the device      |
+| `device.crt`       | Signed device certificate                       |
+| `device.p12`       | PKCS#12 bundle for SDP clients                  |
+| `device_macos.p12` | PKCS#12 bundle for SDP clients                  |
 
 ## Configuration
 
@@ -94,7 +95,15 @@ A sample configuration can be found in `cert_config-sample.yml`. This file inclu
     It will display the certificate.
 3. Test the connection with the Cato ZTNA Client
 
-Note: check if the Cato ZTNA Client version you are using supports device certificate check before enforcing it. The supported versions can be found in the [Cato Documentation](https://support.catonetworks.com/hc/en-us/articles/7387501459357-Creating-Device-Posture-Profiles-and-Device-Checks)
+### On MacOS
+1. Open KeyChain Access app (select from Applications or search in Spotlight)
+2. Select the login keychain
+3. Drag and Drop the 'device_macos.p12' file to it
+
+
+Notes: 
+1. check if the Cato ZTNA Client version you are using supports device certificate check before enforcing it. The supported versions can be found in the [Cato Documentation](https://support.catonetworks.com/hc/en-us/articles/7387501459357-Creating-Device-Posture-Profiles-and-Device-Checks)
+2. For MacOS, you don't need to change the trust settings for the certificate installed in this process
 
 ## Author
 **Andre Gustavo Albuquerque**

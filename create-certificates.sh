@@ -106,13 +106,15 @@ openssl x509 -req -in "$DEVICE_CSR_NAME" -CA "$ROOT_CA_CERT_NAME" -CAkey "$ROOT_
 DEVICE_CERT_NAME_P12="$CERTS_DIR/$DEV_CERT_NAME.p12"
 openssl pkcs12 -export -out "$DEVICE_CERT_NAME_P12" -inkey "$DEVICE_KEY_NAME" -in "$DEVICE_CERT_NAME" \
     -passout pass:"$CA_PASSWORD" || fail "Failed to export device certificate to .p12 format"
+DEVICE_CERT_NAME_MACOS_P12="$CERTS_DIR/${DEV_CERT_NAME}_macos.p12"
+openssl pkcs12 -export -out "$DEVICE_CERT_NAME_MACOS_P12" -inkey "$DEVICE_KEY_NAME" -in "$DEVICE_CERT_NAME" \
+    -passout pass:"$CA_PASSWORD" -legacy || fail "Failed to export device certificate to legacy .p12 format (MacOS)"
 
 # Step 7: Convert the root CA to .pem format.
 ROOT_CA_PEM_NAME="$CERTS_DIR/$CA_CERT_NAME.pem"
 openssl x509 -in "$ROOT_CA_CERT_NAME" -out "$ROOT_CA_PEM_NAME" || fail "Failed to convert Root CA CRT to PEM"
 
 echo "Certificates generated successfully in ./$CERTS_DIR"
-echo "CA Certificate: $ROOT_CA_CERT_NAME"
 echo "CA PEM (for CMA): $ROOT_CA_PEM_NAME"
-echo "Device Certificate: $DEVICE_CERT_NAME"
-echo "PKCS#12 File (Linux): $DEVICE_CERT_NAME_P12"
+echo "PKCS#12 File (For devices with Windows, Linux): $DEVICE_CERT_NAME_P12"
+echo "PKCS#12 File (For devices with MacOS): $DEVICE_CERT_NAME_MACOS_P12"
