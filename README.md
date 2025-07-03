@@ -12,9 +12,10 @@ This project provides a Bash 3.2-compatible script that automates the process of
 
 ## Requirements
 
-- Bash 3.2+
-- `openssl`
-- [`yq`](https://github.com/mikefarah/yq) (YAML processor)
+This script has been tested with the following versions:
+- Bash 3.2.57(1)-release
+- OpenSSL 3.5.0
+- [yq v4.45.4](https://github.com/mikefarah/yq) (YAML processor)
 
 ## Usage
 
@@ -23,6 +24,7 @@ This project provides a Bash 3.2-compatible script that automates the process of
 ```bash
 git clone <repo-url>
 cd <repo-directory>
+chmod 755 create-certificates.sh
 ```
 
 ### 2. Create configuration
@@ -32,7 +34,7 @@ Before running the script, create a configuration file named `cert_config.yml` b
 ### 3. Run the script
 
 ```bash
-./generate-certificates.sh
+./create-certificates.sh
 ```
 
 If `cert_config.yml` is not found, the script will exit with an error. If any required parameter is missing from the configuration file, the script will list the missing keys and exit.
@@ -106,8 +108,7 @@ Notes:
 2. For MacOS, you don't need to change the trust settings for the certificate installed in this process
 
 ## Author
-**Andre Gustavo Albuquerque**
-
+**Andre Gustavo Albuquerque**  
 [GitHub](https://github.com/andregca)
 
 
